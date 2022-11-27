@@ -1,12 +1,25 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider'
 import PrimaryButton from '../Components/Button/PrimaryButton'
+import toast from 'react-hot-toast'
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext)
+  const { user,logout } = useContext(AuthContext)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const navigate=useNavigate()
+
+
+
+  //logout
+  const logoutHandler = () => {
+    logout().then(()=>{})
+     toast.warning("user logout")
+navigate("/")
+  }
+
 
   return (
     <header className='text-gray-900 body-font shadow-sm'>
@@ -61,7 +74,10 @@ const Navbar = () => {
                     </Link>
 
                     <hr className='border-gray-200' />
-                    <div className='flex items-center cursor-pointer p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100 '>
+                    <div
+                    
+                    onClick={logoutHandler }
+                    className='flex items-center cursor-pointer p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100 '>
                       <svg
                         className='w-5 h-5 mx-1'
                         viewBox='0 0 24 24'
@@ -74,7 +90,7 @@ const Navbar = () => {
                         ></path>
                       </svg>
 
-                      <span className='mx-1'>Sign Out</span>
+                      <span  className='mx-1'>Sign Out</span>
                     </div>
                   </div>
                 )}
