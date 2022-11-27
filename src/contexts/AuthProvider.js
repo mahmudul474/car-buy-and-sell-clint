@@ -39,10 +39,13 @@ const AuthProvider = ({ children }) => {
   }
 
   //   3. Email Verify
-  const verifyEmail = () => {
-    setLoading(true)
-    return sendEmailVerification(auth.currentUser)
-  }
+
+//   requeer warning  asinment 
+
+  // const verifyEmail = () => {
+  //   setLoading(true)
+  //   return sendEmailVerification(auth.currentUser)
+  // }
 
   // 4. Google Signin
   const signInWithGoogle = () => {
@@ -77,7 +80,7 @@ const AuthProvider = ({ children }) => {
     })
 
     return () => {
-      //this part will execute once the component is unmounted.
+      //componenets is unmounted
       unsubscribe()
     }
   }, [])
@@ -86,7 +89,7 @@ const AuthProvider = ({ children }) => {
     user,
     createUser,
     updateUserProfile,
-    verifyEmail,
+   
     signInWithGoogle,
     logout,
     signin,

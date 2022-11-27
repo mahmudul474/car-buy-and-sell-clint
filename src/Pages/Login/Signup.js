@@ -1,9 +1,67 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import toast from 'react-hot-toast'
 
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
+import { AuthContext } from '../../contexts/AuthProvider'
 
 const Signup = () => {
+  //user Creat methos from constext api
+const{ createUser,updateUserProfile,signInWithGoogle,}=useContext(AuthContext)
+
+
+
+
+const  handleSignup=(event)=>{
+  event.preventDefault()
+
+  const form=event.target;
+  const name=form.name.value;
+  const email=form.email.value;
+  const password=form.password.value;
+  const  image=form.image.files[0]
+  
+
+  const formData=new FormData()
+  formData.append('image',image)
+
+//photimbb url 
+   const url=`https://api.imgbb.com/1/upload?key=361db61aaf2e5a08fc416c3257898005`
+   //photo imbburl fetah
+   fetch(url, {
+     method: 'POST',
+     body: formData,})
+     .then((res) => res.json())
+     .then((data) =>{
+      // console.log(data.data.delete_url)
+// const userImg=data.data.delete_url;
+      //user create
+ createUser(email,password)
+ .then((result)=>{
+const user=result.user
+ console.log(user)
+
+ //uptgrade_USer
+updateUserProfile(name,data.data.delete_url)
+.then(()=>{
+toast.success("usrea create success")
+form.reset()
+})
+})
+
+
+
+     })
+
+
+
+
+
+
+
+}
+
+
   return (
     <div className='flex justify-center items-center pt-8'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -12,6 +70,7 @@ const Signup = () => {
           <p className='text-sm text-gray-400'>Create a new account</p>
         </div>
         <form
+        onSubmit={handleSignup}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
