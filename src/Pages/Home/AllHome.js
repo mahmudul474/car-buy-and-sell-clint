@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import HomeCard from '../Components/Card/HomeCard'
-import Spinner from '../Components/Spinner/Spinner'
+import HomeCard from '../../Components/Card/HomeCard'
+import Spinner from '../../Components/Spinner/Spinner'
 
 const AllHome = () => {
   const [loading, setLoading] = useState(true)
