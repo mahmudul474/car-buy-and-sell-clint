@@ -2,15 +2,17 @@ import { error } from 'daisyui/src/colors'
 import React, { useContext } from 'react'
 import toast from 'react-hot-toast'
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
 
 const Signup = () => {
   //user Creat methos from constext api
 const{ createUser,updateUserProfile,signInWithGoogle,}=useContext(AuthContext)
-
-
+//navigate
+const location=useLocation();
+const navigate=useNavigate()
+const from =location.state?.from.pathname || "/"
 
 
 const  handleSignup=(event)=>{
@@ -35,7 +37,6 @@ const  handleSignup=(event)=>{
      .then((res) => res.json())
      .then((data) =>{
       // console.log(data.data.delete_url)
-// const userImg=data.data.delete_url;
       //user create
  createUser(email,password)
  .then((result)=>{
@@ -47,6 +48,7 @@ updateUserProfile(name,data.data.delete_url)
 .then(()=>{
 toast.success("usrea create success")
 form.reset()
+navigate(from,{replace:true})
 })
 .catch((err)=>{
  toast.error("usrea create error")})
@@ -60,7 +62,9 @@ const handleGoogleSignup=(event)=>{
 
   event.preventDefault()
 
-  signInWithGoogle().then((result)=>{}).catch(error=>console.log(error))
+  signInWithGoogle().then((result)=>{
+    navigate(from,{replace:true})
+  }).catch(error=>console.log(error))
 }
 
 

@@ -1,19 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import toast from 'react-hot-toast'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
 
 
 const Login = () => {
- 
-  const { signin,loading,setloading, signInWithGoogle}=useContext(AuthContext)
+ //contenxt api
+  const { signin,loading,setloading, signInWithGoogle,resetPassword}=useContext(AuthContext)
   const location = useLocation();
   const navigate=useNavigate()
   let from = location.state?.from?.pathname || "/";
 
+  const[resetPasswordemail,setResetPasswordemail] =useState("")
+
+
+//login method
+
   const handleLogin=(event)=>{
     event.preventDefault()
-    
    const form=event.target;
    const email=form.email.value;
    const password=form.password.value;
@@ -30,13 +35,24 @@ const Login = () => {
    )
   }
 
+//googleSinings
 
   const  googleSinings=(e)=>{
     e.preventDefault();
-    signInWithGoogle().then((result)=>{}).catch(error=>console.log(error))
+    signInWithGoogle().then((result)=>{
+      navigate(from,{replace:true})
+    }).catch(error=>console.log(error))
   }
 
 
+  //reset password
+  const  passwordReset=(e)=>{
+    resetPassword(resetPasswordemail).then(()=>{
+
+      toast.success("check your email")
+    })
+
+  }
 
 
   return (
@@ -59,6 +75,7 @@ const Login = () => {
                 Email address
               </label>
               <input
+              onBlur={(event)=>setResetPasswordemail(event.target.value)}
                 type='email'
                 name='email'
                 id='email'
@@ -95,7 +112,7 @@ const Login = () => {
           </div>
         </form>
         <div className='space-y-1'>
-          <button className='text-xs hover:underline text-gray-400'>
+          <button   onClick={ passwordReset} className='text-xs hover:underline text-gray-400'>
             Forgot password?
           </button>
         </div>
