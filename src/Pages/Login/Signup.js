@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import toast from 'react-hot-toast'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { setAuthToken } from '../../auth'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
 
@@ -41,7 +42,7 @@ const  handleSignup=(event)=>{
  createUser(email,password)
  .then((result)=>{
 const user=result.user
- console.log(user)
+setAuthToken(user)
 
  //uptgrade_USer
 updateUserProfile(name,data.data.delete_url)
@@ -63,6 +64,9 @@ const handleGoogleSignup=(event)=>{
   event.preventDefault()
 
   signInWithGoogle().then((result)=>{
+    const user=result.user
+    setAuthToken(user)
+    
     navigate(from,{replace:true})
   }).catch(error=>console.log(error))
 }

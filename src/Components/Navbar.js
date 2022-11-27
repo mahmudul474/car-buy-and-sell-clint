@@ -16,7 +16,7 @@ const Navbar = () => {
   //logout
   const logoutHandler = () => {
     logout().then(()=>{})
-     toast.warning("user logout")
+     toast.success("user logout")
 navigate("/")
   }
 

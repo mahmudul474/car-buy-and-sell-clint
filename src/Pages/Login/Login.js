@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { setAuthToken } from '../../auth'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
 
@@ -24,6 +25,11 @@ const Login = () => {
    const password=form.password.value;
    signin(email,password)
    .then((result)=>{
+     const user=result.user;
+
+     //get user token in jwt
+     setAuthToken(user)
+
     navigate(from,{replace:true})
     form.reset();
    }).catch(ero=>{
@@ -40,6 +46,11 @@ const Login = () => {
   const  googleSinings=(e)=>{
     e.preventDefault();
     signInWithGoogle().then((result)=>{
+  
+
+    //get uer token in jwt token
+    setAuthToken(result.user)
+
       navigate(from,{replace:true})
     }).catch(error=>console.log(error))
   }
