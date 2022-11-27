@@ -1,8 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
+import { AuthContext } from '../../contexts/AuthProvider'
+
 
 const Login = () => {
+ 
+  const { signin,loading,setloading, signInWithGoogle}=useContext(AuthContext)
+  const location = useLocation();
+  const navigate=useNavigate()
+  let from = location.state?.from?.pathname || "/";
+
+  const handleLogin=(event)=>{
+    event.preventDefault()
+    
+   const form=event.target;
+   const email=form.email.value;
+   const password=form.password.value;
+   signin(email,password)
+   .then((result)=>{
+    navigate(from,{replace:true})
+    form.reset();
+   }).catch(ero=>{
+    
+    console.log(ero.message);
+    setloading(false)
+   }
+   
+   )
+  }
+
+
+  const  googleSinings=(e)=>{
+    e.preventDefault();
+    signInWithGoogle().then((result)=>{}).catch(error=>console.log(error))
+  }
+
+
+
+
   return (
     <div className='flex justify-center items-center pt-8'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -12,7 +48,7 @@ const Login = () => {
             Sign in to access your account
           </p>
         </div>
-        <form
+        <form  onSubmit={handleLogin}
           noValidate=''
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -54,7 +90,7 @@ const Login = () => {
               type='submit'
               classes='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100'
             >
-              Sign in
+              {loading? "loding" :"Sign in"}
             </PrimaryButton>
           </div>
         </form>
@@ -71,7 +107,7 @@ const Login = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button  onClick={googleSinings} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'

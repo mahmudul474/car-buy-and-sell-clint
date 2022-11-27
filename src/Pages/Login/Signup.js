@@ -1,3 +1,4 @@
+import { error } from 'daisyui/src/colors'
 import React, { useContext } from 'react'
 import toast from 'react-hot-toast'
 
@@ -47,19 +48,22 @@ updateUserProfile(name,data.data.delete_url)
 toast.success("usrea create success")
 form.reset()
 })
+.catch((err)=>{
+ toast.error("usrea create error")})
 })
-
-
-
      })
-
-
-
-
-
-
-
 }
+
+//google  singing
+
+const handleGoogleSignup=(event)=>{
+
+  event.preventDefault()
+
+  signInWithGoogle().then((result)=>{}).catch(error=>console.log(error))
+}
+
+
 
 
   return (
@@ -151,7 +155,7 @@ form.reset()
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button onClick={handleGoogleSignup}   aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
