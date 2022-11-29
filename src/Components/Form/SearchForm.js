@@ -4,13 +4,23 @@ import { CalendarIcon } from '@heroicons/react/20/solid'
 import DatePicker from 'react-datepicker'
 
 const SearchForm = () => {
+
+
+
+  const handeleSubmit=(event)=>{
+    event.preventDefault()
+ 
+  }
+
+
+
   return (
     <div className='w-full max-w-sm p-6 m-auto mx-auto'>
       <h1 className='text-xl font-semibold text-gray-700'>
         Where do you want to go
       </h1>
 
-      <form className='mt-6'>
+      <form   onSubmit={handeleSubmit}  className='mt-6'>
         <div className='shadow-md rounded-md my-2 p-3'>
           <label
             htmlFor='location'
