@@ -1,0 +1,15 @@
+.img-height{
+  height: 80vh;
+}
+
+.text-font{
+  font-family: sans-serif;
+}
+
+.text-warning1{
+  color: yellow;
+}
+.bg-danger1{
+  background-color: rgb(56,156,137);
+}
+
