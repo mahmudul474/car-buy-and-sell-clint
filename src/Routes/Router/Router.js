@@ -84,12 +84,12 @@ const routers = createBrowserRouter([
       },
       {
         path: '/alluser',
-        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        element: <AllUsers></AllUsers>
       },
 
       {
         path: '/allbuyer',
-        element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
+        element: <AllBuyer></AllBuyer>
       },
       {
         path: '/allReport',

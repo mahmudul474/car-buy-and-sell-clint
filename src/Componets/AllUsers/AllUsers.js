@@ -8,7 +8,7 @@ const AllUsers = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`https://car-sell-buy-server-kowsarahammd80.vercel.app/allSellers`)
+    fetch(`http://localhost:5000/allSellers`)
       .then(res => res.json())
       .then(data => {
         setAllUsers(data)
