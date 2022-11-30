@@ -93,7 +93,7 @@ const routers = createBrowserRouter([
       },
       {
         path: '/allReport',
-        element: <AdminRoute><AllReport></AllReport></AdminRoute>
+        element: <AllReport></AllReport>
       }
     ]
   },

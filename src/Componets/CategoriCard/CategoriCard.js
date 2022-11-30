@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import "../Category/Category.css"
 
 const CategoriCard = ({ category }) => {
 
@@ -16,7 +17,7 @@ const CategoriCard = ({ category }) => {
     <div class="col">
       {/* /carCategoryShowCard */}
       <div class="card">
-        <img src={logo} class="card-img-top height" alt="..." />
+        <img src={logo} class="card-img-top xcard " alt="..." />
         <div class="card-body text-center">
           <h5 class="card-title">{model}</h5>
           <div className=''>

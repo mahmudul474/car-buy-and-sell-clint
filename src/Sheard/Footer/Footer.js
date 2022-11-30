@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../../assets/logo/Logo1.png'
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -8,8 +9,9 @@ const Footer = () => {
         <div className='row'>
 
           <div className='col-12 col-lg-4 '>
-            <img src={logo} alt="" className='w-50' />
-            <p className='pt-2 text-justify'>Lorem ipsum dolor sit amet, consect etur adi pisicing elit sed do eiusmod tempor incididunt ut labore.Lorem ipsum dolor sit amet, consect etur adi pisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+          <Link to="/"> <div>
+          <h1 className='text-primary'><span className='text-white'>Hea</span>Easy</h1>
+         </div></Link>
           </div>
 
           <div className='col-6 col-lg-2 footerHeaders'>

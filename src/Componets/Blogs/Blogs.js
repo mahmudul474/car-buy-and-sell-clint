@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Auth/AuthProvider';
+import React, { useEffect, useState } from 'react';
 import Loading from '../../Sheard/Loading/Loading';
 import BlogsCard from '../BlogsCard/BlogsCard';
 

@@ -33,7 +33,7 @@ const BookModal = ({ cardeta }) => {
       UserName: UserName
     }
 
-    fetch(`http://localhost:5000/bookingData`, {
+    fetch(`https://car-sell-buy-server-kowsarahammd80.vercel.app/bookingData`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

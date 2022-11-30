@@ -1,0 +1,27 @@
+[
+  {
+      "id":1,
+      "question":" What are the different ways to manage a state in a React application?",
+      "strong":"Cross-Origin Resource Sharing",
+      "answer": "Keeping such data in the URL allows users to share deep links with others.It is recommended to avoid storing such information in the app’s state to avoid the URL in our app getting out of sync. The URL should be used as the system of record, Read from it as needed for information related to sorting, pagination, etc. Update the URL as required when the settings changeReact Router is a great tool to handle routes and manage the params."
+  },
+  {
+      "id":2,
+      "question":"How does prototypical inheritance work?",
+      "strong":"Google Firebase",
+      "answer": "The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. to get and set the [[Prototype]] of an object, we use Object.Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__"
+  },
+  {
+      "id":3,
+      "question":"What other options do you have to implement authentication?",
+      "strong":"Authentication",
+      "answer": "Encryption is used when a person buys their ticket online at one of the many sites that advertises cheap ticket. Upon finding the perfect flight at an ideal price, a person goes to buy the ticket. Encryption is used to protect a person’s credit card and personal information when it is sent over the Internet to the airline. The company encrypts the customer’s data so that it will be safer from interception in transit."
+  },
+  {
+      "id":4,
+      "question":" React vs. Angular vs. Vue?",
+      "strong":"Private route",
+      "answer": " Here we’ll cover various aspects of Angular, Vue, and React to see how they suit your needs. This post is not just a guide on Angular vs React vs Vue but aims to provide a structure to help judge front-end JavaScript frameworks in general.  In case a new framework arrives next year, you will know exactly what parameters to look at  you will know exactly what parameters to look at!"
+  }
+
+]

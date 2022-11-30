@@ -17,7 +17,7 @@ const CarCategoris = () => {
           <div className='text-center'>
             <div className='text-white'>
 
-              <h1 className='shadow-lg'> <span className=''>WELCOME</span> <span className='text-warning1'> MOTORO <br /> AUTOMOTIVE THEME</span> </h1>
+              <h1 className='shadow-lg'> <span className=''>WELCOME</span> <span className='text-warning1'> heaEasy<br /> hava a nice jurny with us</span> </h1>
 
             </div>
           </div>

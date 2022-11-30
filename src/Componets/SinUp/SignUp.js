@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
 import SocalSign from '../../Sheard/SocalSign/SocalSign';
 
+
 const SignUp = () => {
 
-  const { signUp, setUpdateProfile, } = useContext(AuthContext)
+  const { signUp, setUpdateProfile, setLoading} = useContext(AuthContext)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -46,6 +48,8 @@ const SignUp = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data)
+            toast.success("user sinup success")
+            
             navigate(from, { replace: true })
           })
 
@@ -76,9 +80,7 @@ const SignUp = () => {
         < div className='col-12 col-lg-6 ps-0 ps-lg-5 d-none d-lg-block' >
           <img src='' className='img-fluid' alt="" />
           <div className='text-center pt-3'>
-            <h1 className='fw-bold text-danger'>
-              WelCome Motor <br /> Automotive Theme</h1>
-            <p className='px-0 px-lg-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione labore vitae iusto officiis repudiandae cumque aliquid eius laborum doloribus non?</p>
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="w-full" alt="Sample image" />
           </div>
         </div >
 

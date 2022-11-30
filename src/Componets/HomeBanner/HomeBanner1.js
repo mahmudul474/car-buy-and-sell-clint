@@ -1,25 +1,25 @@
 import React from 'react';
 import './HomeBanner.css'
-import cover from '../../assets/caru-img/cover1.jfif'
+import slid from "../.././assets/caru-img/slide-1.jpg"
+import "./Banner.css"
 
 const HomeBanner1 = () => {
   return (
-    <div className='container-fluid bg-danger1 text-font'>
+    <div className='container-fluid  text-font  ' style={{ backgroundImage: `url(${slid})` }}>
 
-      <div className='row'>
+      <div className='row  height' >
 
-        <div className='col-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center'>
+        <div className='col-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center py-5'    >
             
-            <div className='text-white'>
-               <h1 className=''> WELCOME <span className='text-warning1'> MOTORO <br /> AUTOMOTIVE THEME</span> </h1>
+            <div className='text-light' >
+               <h1 className=''> Who Royal Cars Are.  </h1>
                <h4 className='fw-bold'>Buy <span className='text-warning1'>&</span> Sell Your Dream Car</h4>
+               <button className='btn btn-primary mt-5  w-50 py-3 '>show more</button>
             </div>
       
         </div>
 
-        <div className='col-12 col-md-6 col-lg-6'>
-          <img src={cover} className='img-fluid w-100' alt="" />
-        </div>
+     
 
       </div>
       
