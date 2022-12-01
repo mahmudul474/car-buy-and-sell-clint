@@ -2,7 +2,9 @@
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import routers from './Routes/Router/Router';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 

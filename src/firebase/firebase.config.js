@@ -5,16 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA3sPrItCEYV2BLOWAwkwNpWP5dkY8b5II",
-  authDomain: "heaeasy.firebaseapp.com",
-  projectId: "heaeasy",
-  storageBucket: "heaeasy.appspot.com",
-  messagingSenderId: "559802822501",
-  appId: "1:559802822501:web:6132d8bc0c2a227c423b8c"
+  apiKey: "AIzaSyAUynpBcjo-hvz4BGscs2EXog80RWoaRVA",
+  authDomain: "car-sell-buy-client.firebaseapp.com",
+  projectId: "car-sell-buy-client",
+  storageBucket: "car-sell-buy-client.appspot.com",
+  messagingSenderId: "257291104023",
+  appId: "1:257291104023:web:a6b49fd90db8f3ffbbd152"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app
-
+export default app;

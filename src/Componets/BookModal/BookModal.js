@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../Auth/AuthProvider';
 
 
@@ -21,8 +22,9 @@ const BookModal = ({ cardeta }) => {
     const email = form.email.value;
     const UserName = form.UserName.value
 
-    form.reset('')
+    
     console.log(number, price, productName, email, UserName, location)
+    form.reset('')
 
     const bookingData = {
       location: location,
@@ -33,7 +35,7 @@ const BookModal = ({ cardeta }) => {
       UserName: UserName
     }
 
-    fetch(`https://car-sell-buy-server-kowsarahammd80.vercel.app/bookingData`, {
+    fetch(`http://localhost:5000/bookingData`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -43,6 +45,7 @@ const BookModal = ({ cardeta }) => {
     })
       .then(res => res.json())
       .then(data => {
+        toast.success("booking success")
         setBooking(data)
       })
 

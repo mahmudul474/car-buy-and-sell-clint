@@ -1,24 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import CarCard from './CarCard';
 
 
 const CarCategoryShowCard = () => {
 
-  const [carDatas, setCardatas] = useState([])
-
-  // console.log(carDatas)
+ 
 
   const params = useParams()
 
-  useEffect(() => {
+ 
 
-    fetch(`http://localhost:5000/allCars?model=${params.model}`)
-      .then(res => res.json())
-      .then(data => setCardatas(data))
-      .catch(error => console.error(error))
 
-  }, [])
+  const {data:carDatas = []} = useQuery({
+    queryKey: ['users'],
+    queryFn: async() =>{
+        const res = await fetch(`http://localhost:5000/allCars?model=${params.model}`);
+        const data = await res.json();
+        return data;
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (

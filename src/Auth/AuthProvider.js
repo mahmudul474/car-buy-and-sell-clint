@@ -46,7 +46,7 @@ export const AuthContext = createContext()
 
    });
    return () => {
-     return unsubscribe;
+     return unsubscribe();
    } 
   },[])
 
@@ -55,7 +55,7 @@ export const AuthContext = createContext()
   }
     
   const authInfo = {
-    signUp , logIn , loading ,user, providerLogIn, logOut , setUpdateProfile
+    signUp , logIn , loading ,user, providerLogIn, logOut , setUpdateProfile,setLoading
   }
 
   return (

@@ -6,7 +6,7 @@ import SocalSign from '../../Sheard/SocalSign/SocalSign';
 
 const Login = () => {
 
-  const { logIn } = useContext(AuthContext)
+  const { logIn, setLoading } = useContext(AuthContext)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -23,14 +23,16 @@ const Login = () => {
     logIn(email, password)
       .then(result => {
         const user = result.user;
-        console.log(user)
-        toast.success("user login success")
         navigate(from, { replace: true })
+        setLoading(false)
+  
+        
+       
+      
       })
       .catch(error => {
         console.error(error)
-        navigate("/login")
-        toast.error("error.massage")
+        toast.error(error.message)
       })
 
   }
@@ -39,13 +41,9 @@ const Login = () => {
     <div className='container-fluid pb-4 bg-color text-color'>
 
       <div className='row  align-items-center g-4'>
-
-        < div className='col-12 col-lg-6 ps-0 ps-lg-5 d-none d-lg-block' >
-          <img src='' className='img-fluid' alt="" />
-          <div className='text-center pt-3'>
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="w-full" alt="Sample image" />
-          </div>
-        </div >
+      <div className="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
+      </div>
 
         <div className='col-12 col-lg-6 '>
 

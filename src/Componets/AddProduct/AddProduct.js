@@ -1,6 +1,5 @@
 import moment from 'moment/moment';
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { AuthContext } from '../../Auth/AuthProvider';
 
 const AddProduct = () => {
@@ -22,7 +21,7 @@ const AddProduct = () => {
 
 
     const product = {
-      seller: user?.email,
+      seller: user.email,
       model: model,
       image: image,
       carType: carType,
@@ -47,8 +46,7 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-      
-          toast.success("product add success")
+
         console.warn(result);
         from.reset();
       });
@@ -62,7 +60,7 @@ const AddProduct = () => {
 
       <div className='container mt-4 mb-5'>
 
-        <form className=' w-50 m-auto' onSubmit={productData}>
+        <form className='' onSubmit={productData}>
 
           <div class="mb-3">
 

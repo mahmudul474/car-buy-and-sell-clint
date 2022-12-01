@@ -53,7 +53,7 @@ const routers = createBrowserRouter([
       },
       {
         path: '/addproduct',
-        element: <AddProductPage></AddProductPage>
+        element: <SellerRoute><AddProductPage></AddProductPage></SellerRoute>
       },
       {
         path: '/myorder',
@@ -65,7 +65,7 @@ const routers = createBrowserRouter([
       },
       {
         path: '/myProductList',
-        element: <ProductMyList></ProductMyList>
+        element: <SellerRoute><ProductMyList></ProductMyList></SellerRoute>
       },
       {
         path: '/boostProduct/:email',
@@ -84,16 +84,16 @@ const routers = createBrowserRouter([
       },
       {
         path: '/alluser',
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
 
       {
         path: '/allbuyer',
-        element: <AllBuyer></AllBuyer>
+        element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
       },
       {
         path: '/allReport',
-        element: <AllReport></AllReport>
+        element: <AdminRoute><AllReport></AllReport></AdminRoute>
       }
     ]
   },

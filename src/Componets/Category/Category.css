@@ -1,6 +1,5 @@
-.xcard{
-  height: 160px;
-  object-fit: contain;
+.height{
+  height: 260px;
 }
 .bg-danger2{
   background-color: rgb(56,156,137);

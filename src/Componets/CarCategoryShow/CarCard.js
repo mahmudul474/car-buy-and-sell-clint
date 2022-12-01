@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BookModal from '../BookModal/BookModal';
 import ReportModal from '../ReaportModal/ReportModal';
 import './CategoryCard.css'
+import img from ".././../.././src/assets/caru-img/bmw.jpg"
 
 
 const CarCard = ({ cardate }) => {
@@ -11,7 +12,7 @@ const CarCard = ({ cardate }) => {
   const [books, setBooks] = useState()
 
   const handleBook = (_id) => {
-
+  console.log(_id)
     setBooks(_id)
 
   }
@@ -20,7 +21,8 @@ const CarCard = ({ cardate }) => {
   return (
     <div class="col">
       <div class="card">
-        <img src={image} class="card-img-top img-height1" alt="..." />
+        <img src={image? image:{img}} class="card-img-top img-height1" alt="..." />
+        
         <div class="card-body">
           <h5 class="card-title text-center">Care name: {model}</h5>
           <p class="card-text"> <i class="fa-regular fa-circle-check text-success"></i> Seller Name:  {seller}</p>
@@ -58,6 +60,28 @@ const CarCard = ({ cardate }) => {
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
     </div>
   );
 };

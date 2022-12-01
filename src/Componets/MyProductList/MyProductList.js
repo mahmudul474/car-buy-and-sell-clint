@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Auth/AuthProvider';
 import MyProductListCard from './MyProductListCard';
-// import { useQuery } from "react-query";
+import { useQuery } from "react-query";
 
 
 const MyProductList = () => {
@@ -15,13 +15,13 @@ const MyProductList = () => {
       .then(res => res.json())
       .then(data => setMyPoroduts(data))
       .catch(e => console.error(e))
-  }, [user?.email])
+  }, [myProducts])
 
 
   // const { refetch } = useQuery({
   //   queryKey: ["repoData"],
   //   queryFn: () =>
-  //     fetch(`http://localhost:5000//productsData/${user?.email}`)
+  //     fetch(`http://localhost:5000/productsData/${user?.email}`)
   //       .then((res) => res.json())
   //       .then((result) => setProducts(result)),
   // });

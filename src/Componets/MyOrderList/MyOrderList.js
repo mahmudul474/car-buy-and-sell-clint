@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Auth/AuthProvider';
 import MyOrderTabel from './MyOrderTabel';
@@ -6,14 +7,17 @@ const MyOrderList = () => {
 
   const { user } = useContext(AuthContext)
 
-  const [myOrders, setMyOrsders] = useState([])
+  
+  const {data: myOrders = [],} = useQuery({
+    queryKey: ['myOrders'],
+    queryFn: async() =>{
+        const res = await fetch(`http://localhost:5000/bookingData/${user?.email}`)
+        const data = await res.json();
+        return data;
+    }
+});
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/bookingData/${user?.email}`)
-      .then(res => res.json())
-      .then(data => setMyOrsders(data))
-      .catch(e => console.error(e))
-  }, [user?.email])
+
 
   return (
     <div className='container mt-3 mb-3'>

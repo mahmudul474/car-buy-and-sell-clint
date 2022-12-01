@@ -11,25 +11,25 @@ const MyProductListCard = ({ myProduct, handleProductDelete }) => {
 
     toast.success('Success Your Boost')
 
-    const { _id, seller, model, image, carType, price, oldPrice, location, UsedTime,
-      postTime, email} = myProduct
+    // const { _id, seller, model, image, carType, price, oldPrice, location, UsedTime,
+    //   postTime, email} = myProduct
 
-    const boost ={
-      seller: `${seller}`,
-      image: `${image}`,
-      price: `${price}` 
-    }
+    // const boost ={
+    //   seller: `${seller}`,
+    //   image: `${image}`,
+    //   price: `${price}` 
+    // }
 
-     fetch('http://localhost:5000/boostProduct/',{
-       method: "POST",
-       header:{
-        "content-Type": "application/json",
-       },
-       body: JSON.stringify(boost)
-     })
-      .then(res => res.json())
-      .then(data => data)
-      .catch(e => console.error(e))
+    //  fetch(`http://localhost:5000/boostProduct/`,{
+    //    method: "POST",
+    //    header:{
+    //     "content-Type": "application/json",
+    //    },
+    //    body: JSON.stringify(boost)
+    //  })
+    //   .then(res => res.json())
+    //   .then(data => data)
+    //   .catch(e => console.error(e))
 
 
 

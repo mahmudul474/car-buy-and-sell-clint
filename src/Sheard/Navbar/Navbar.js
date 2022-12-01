@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import './Navbar.css'
-import { Link, Navigate, } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo/Logo1.png'
 import { AuthContext } from '../../Auth/AuthProvider';
+import useSeller from '../../Hooks/useSeller';
+import useBuyer from '../../Hooks/useBuyer';
+import useAdmin from '../../Hooks/useAdmin';
 import Loading from '../Loading/Loading';
 import useHook from '../../Hooks/userHook';
-import "./Nav.css"
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
@@ -29,30 +32,24 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(result => { 
-
-        Navigate("/")
-      })
+      .then(result => { })
       .catch(error => console.error(error))
   }
 
 
   return (
     <div className=''>
-      <nav class="navbar navbar-expand-lg bg-dark ">
-        <div class="container  ">
-         <div>
-         
-         <Link to="/"> <div>
-          <h1 className='text-primary'><span className='text-white'>Hea</span>Easy</h1>
-         </div></Link>
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container">
+          <Link class="navbar-brand" href="#">
+             <h1 className='text-white'>Hea<span className='text-primary'>Easy</span></h1>
+          </Link>
           <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-         </div>
 
-          <div class="collapse navbar-collapse justify-content-end"  id="navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ">
               <li class="nav-item fw-bold">
                 <Link to='/' class="nav-link text-white" >Home</Link>
               </li>
@@ -135,7 +132,7 @@ const Navbar = () => {
                 user?.email &&
                 <div className='d-flex align-item-center'>
 
-                  <p className='text-white  my-auto mx-2'>{user.displayName}</p>
+                  <p className='text-white'>{user.displayName}</p>
 
                 </div>
               }

@@ -9,7 +9,7 @@ const AllReport = () => {
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
-    fetch(`https://car-sell-buy-server-kowsarahammd80.vercel.app/allreportData`)
+    fetch(`http://localhost:5000/allreportData`)
       .then(res => res.json())
       .then(data => {
         setAllReports(data)
