@@ -36,7 +36,7 @@ const SignUp = () => {
           accountType: account
         }
 
-        fetch(` http://localhost:5000/registerData`, {
+        fetch(` https://hea-easy-server-devsobuj910.vercel.app/registerData`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

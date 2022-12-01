@@ -70,7 +70,7 @@ const routers = createBrowserRouter([
       {
         path: '/boostProduct/:email',
         element: <BoostProduct></BoostProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.seller}`)
+        loader: ({ params }) => fetch(`https://hea-easy-server-devsobuj910.vercel.app/${params.seller}`)
 
       },
       {

@@ -35,7 +35,7 @@ const BookModal = ({ cardeta }) => {
       UserName: UserName
     }
 
-    fetch(`http://localhost:5000/bookingData`, {
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/bookingData`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -45,6 +45,7 @@ const BookModal = ({ cardeta }) => {
     })
       .then(res => res.json())
       .then(data => {
+        
         toast.success("booking success")
         setBooking(data)
       })

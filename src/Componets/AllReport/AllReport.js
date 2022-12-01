@@ -9,7 +9,7 @@ const AllReport = () => {
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allreportData`)
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/allreportData`)
       .then(res => res.json())
       .then(data => {
         setAllReports(data)
@@ -25,7 +25,7 @@ const AllReport = () => {
   const handleReportDelete = (id) => {
     const proceed = window.confirm("Are you sure deleting your Buyer");
     if (proceed) {
-      fetch(`http://localhost:5000/allReportDelete/${id}`, {
+      fetch(`https://hea-easy-server-devsobuj910.vercel.app/allReportDelete/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

@@ -37,7 +37,7 @@ const AddProduct = () => {
 
     console.log(product)
 
-    fetch('http://localhost:5000/products', {
+    fetch('https://hea-easy-server-devsobuj910.vercel.app/products', {
       method: "POST",
       headers: {
         "content-Type": "application/json",

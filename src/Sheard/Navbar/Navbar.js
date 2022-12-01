@@ -132,7 +132,7 @@ const Navbar = () => {
                 user?.email &&
                 <div className='d-flex align-item-center'>
 
-                  <p className='text-white'>{user.displayName}</p>
+                  <p className='text-white my-auto mx-3'>{user.displayName}</p>
 
                 </div>
               }

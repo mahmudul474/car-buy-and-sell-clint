@@ -15,7 +15,7 @@ const CarCategoryShowCard = () => {
   const {data:carDatas = []} = useQuery({
     queryKey: ['users'],
     queryFn: async() =>{
-        const res = await fetch(`http://localhost:5000/allCars?model=${params.model}`);
+        const res = await fetch(`https://hea-easy-server-devsobuj910.vercel.app/allCars?model=${params.model}`);
         const data = await res.json();
         return data;
     }

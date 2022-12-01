@@ -8,7 +8,7 @@ const useAdmin = (email) => {
 
     console.warn(email)
 
-    fetch(`http://localhost:5000/adminState/${email}`)
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/adminState/${email}`)
       .then(res => res.json())
       .then(data => {
         console.warn('from admin hook', data)

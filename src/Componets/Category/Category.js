@@ -16,7 +16,7 @@ const Category = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:5000/category')
+    fetch('https://hea-easy-server-devsobuj910.vercel.app/category')
       .then(res => res.json())
       .then(data => {
         setCategories(data)

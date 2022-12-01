@@ -19,7 +19,7 @@ const ReportModal = ({ cardates }) => {
 
     console.log(reportData)
 
-    fetch('http://localhost:5000/reportData', {
+    fetch('https://hea-easy-server-devsobuj910.vercel.app/reportData', {
       method: 'POST',
       headers: {
         "content-Type": "application/json",

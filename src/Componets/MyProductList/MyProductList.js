@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Auth/AuthProvider';
 import MyProductListCard from './MyProductListCard';
-import { useQuery } from "react-query";
+
 
 
 const MyProductList = () => {
@@ -11,36 +11,19 @@ const MyProductList = () => {
   const [myProducts, setMyPoroduts] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${user?.email}`)
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/products/${user?.email}`)
       .then(res => res.json())
       .then(data => setMyPoroduts(data))
       .catch(e => console.error(e))
-  }, [myProducts])
+  }, [user?.email])
 
 
-  // const { refetch } = useQuery({
-  //   queryKey: ["repoData"],
-  //   queryFn: () =>
-  //     fetch(`http://localhost:5000/productsData/${user?.email}`)
-  //       .then((res) => res.json())
-  //       .then((result) => setProducts(result)),
-  // });
-
-  // const { refetch } = useQuery({
-  //   queryKey: ['myProducts'],
-  //   queryFn: () => fetch(`http://localhost:5000/products/${user?.email}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setMyPoroduts(data)
-  //       refetch()
-  //     })
-  // })
 
   const handleProductDelete = (id) => {
     const proceed = window.confirm("Are you sure deleting your product");
     // console.log(id)
     if (proceed) {
-      fetch(`http://localhost:5000/productsData/${id}`, {
+      fetch(`https://hea-easy-server-devsobuj910.vercel.app/productsData/${id}`, {
         method: "DELETE"
       })
         .then(res => res.json())

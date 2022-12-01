@@ -11,7 +11,7 @@ const useHook = (email) => {
 
     console.warn(email)
 
-    fetch(`http://localhost:5000/user/${email}`)
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/${email}`)
       .then(res => res.json())
       .then(data => {
         setUser(data.accountType)

@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const SocalSign = () => {
 
   const { providerLogIn, user } = useContext(AuthContext)
-  const [social, setSocal] = useState()
+  
 
   const provider = new GoogleAuthProvider()
 
@@ -22,24 +22,10 @@ const SocalSign = () => {
         const email = result.user.email
         console.log(email)
 
-        // const social ={
-        //   email: user.email,
-        //   name: user.displayName,
-        //   accountType: 'Buyer'
-        // }
-
-        //  fetch(`http://localhost:5000/registerData/${user?.email}`,{
-        //    method: 'POST',
-        //    headers :{
-        //     'content-type': 'application/json',
-        //    },
-        //    body: JSON.stringify(social)
-        //  })
-        //  .then(res => res.json())
-        //  .then(data => setSocal(data))
+       
 
 
-        fetch(`http://localhost:5000/socialLogin/${user?.email}`)
+        fetch(`https://hea-easy-server-devsobuj910.vercel.app/socialLogin/${user?.email}`)
           .then((res) => res.json())
           .then((result) => localStorage.setItem('AccountStatus', result[0].accountType));
         navigate(from, { replace: true })
@@ -47,16 +33,7 @@ const SocalSign = () => {
       })
       .catch(error => console.error(error))
 
-  //     fetch(`http://localhost:5000/socialLogin/${user?.email}`,{
-  //       method: 'POST',
-
-  //     })
-  //     .then((res) => res.json())
-  //     .then((result) => localStorage.setItem('AccountStatus', result[0].accountType));
-  //   navigate(from, { replace: true })
-
-  // })
-  // .catch(error => console.error(error))
+ 
 
 
 

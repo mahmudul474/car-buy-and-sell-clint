@@ -8,7 +8,7 @@ const CategoriCard = ({ category }) => {
   const [carDetas, setCardatas] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/allCars')
+    fetch('https://hea-easy-server-devsobuj910.vercel.app/allCars')
 
   }, [])
 

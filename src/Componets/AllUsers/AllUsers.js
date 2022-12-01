@@ -8,7 +8,7 @@ const AllUsers = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allSellers`)
+    fetch(`https://hea-easy-server-devsobuj910.vercel.app/allSellers`)
       .then(res => res.json())
       .then(data => {
         setAllUsers(data)
@@ -24,7 +24,7 @@ const AllUsers = () => {
   const handleSellerDelete = (id) => {
     const proceed = window.confirm("Are you sure deleting your Seller");
     if (proceed) {
-      fetch(`http://localhost:500/allSellerDelete/${id}`, {
+      fetch(`https://hea-easy-server-devsobuj910.vercel.app/allSellerDelete/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
