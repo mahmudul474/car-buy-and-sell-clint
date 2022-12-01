@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Auth/AuthProvider';
 import MyProductListCard from './MyProductListCard';
-
+import { useQuery } from "react-query";
 
 
 const MyProductList = () => {

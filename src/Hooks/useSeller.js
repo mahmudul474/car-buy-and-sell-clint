@@ -10,7 +10,7 @@ const useSeller = (email) => {
   useEffect(() => {
 
     fetch(
-      `https://hea-easy-server-devsobuj910.vercel.app/${email}`)
+      `http://localhost:5000/sellerState/${email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data)

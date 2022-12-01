@@ -1,5 +1,6 @@
 
 import { createBrowserRouter } from "react-router-dom";
+import Eror from "../../Componets/404page/Eror";
 import AllBuyer from "../../Componets/AllBuyer/AllBuyer";
 import AllReport from "../../Componets/AllReport/AllReport";
 import AllUsers from "../../Componets/AllUsers/AllUsers";
@@ -29,7 +30,7 @@ const routers = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
-    errorElement: <h4>You are wrong</h4>,
+    errorElement: <Eror></Eror>,
     children: [
       {
         path: '/',
@@ -70,7 +71,7 @@ const routers = createBrowserRouter([
       {
         path: '/boostProduct/:email',
         element: <BoostProduct></BoostProduct>,
-        loader: ({ params }) => fetch(`https://hea-easy-server-devsobuj910.vercel.app/${params.seller}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.seller}`)
 
       },
       {
@@ -98,12 +99,7 @@ const routers = createBrowserRouter([
     ]
   },
 
-  {
-    path: '*',
-    element: <div className="d-flex justify-content-center align-item-center">
-      <h2> This route not found </h2>
-    </div>
-  }
+  
 
 ])
 

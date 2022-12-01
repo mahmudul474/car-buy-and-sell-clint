@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthProvider';
 import SocalSign from '../../Sheard/SocalSign/SocalSign';
@@ -6,6 +7,7 @@ import SocalSign from '../../Sheard/SocalSign/SocalSign';
 const SignUp = () => {
 
   const { signUp, setUpdateProfile,setLoading } = useContext(AuthContext)
+  
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -53,7 +55,11 @@ const SignUp = () => {
 
 
       })
-      .catch(error => console.error(error))
+      .catch(error =>{
+        setLoading(false)
+        console.log(error)
+        toast.error("eror",error.message)
+      })
 
   }
 
@@ -98,6 +104,7 @@ const SignUp = () => {
 
 
           <form className='w-75 pt-5 container' onSubmit={handleSignUp}>
+            
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label fw-bold ">Full Name</label>
               <input type="text" name='name' className="form-control  inputField" placeholder="Full Name" required />
