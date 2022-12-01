@@ -28,9 +28,9 @@ const MyProductList = () => {
       })
         .then(res => res.json())
         .then(data => {
-          // if (data.acknowledged === true) {
-          //   alert('Are you sure delete your item')
-          // }
+          if (data.acknowledged === true) {
+            alert('Are you sure delete your item')
+          }
           console.log(data)
         })
 

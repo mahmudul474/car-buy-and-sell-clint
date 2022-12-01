@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import logo from '../../assets/logo/Logo1.png'
 import { AuthContext } from '../../Auth/AuthProvider';
 import useSeller from '../../Hooks/useSeller';
@@ -32,7 +32,9 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(result => { })
+      .then(result => { 
+        Navigate("/")
+      })
       .catch(error => console.error(error))
   }
 
@@ -42,7 +44,7 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
           <Link class="navbar-brand" href="#">
-             <h1 className='text-white'>Hea<span className='text-primary'>Easy</span></h1>
+            <Link to="/"><h1 className='text-white'>Hea<span className='text-primary'>Easy</span></h1></Link>
           </Link>
           <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

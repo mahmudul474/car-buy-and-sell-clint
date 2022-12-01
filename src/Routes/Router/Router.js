@@ -54,7 +54,7 @@ const routers = createBrowserRouter([
       },
       {
         path: '/addproduct',
-        element: <SellerRoute><AddProductPage></AddProductPage></SellerRoute>
+        element:<PrivateRoute> <AddProductPage></AddProductPage></PrivateRoute>
       },
       {
         path: '/myorder',
@@ -66,7 +66,7 @@ const routers = createBrowserRouter([
       },
       {
         path: '/myProductList',
-        element: <SellerRoute><ProductMyList></ProductMyList></SellerRoute>
+        element: <PrivateRoute><ProductMyList></ProductMyList></PrivateRoute>
       },
       {
         path: '/boostProduct/:email',
